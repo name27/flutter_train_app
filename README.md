@@ -35,7 +35,7 @@ lib/
     │   └── station_list_page.dart # 역 목록 페이지
     └── widget/
         ├── seat_tile.dart   # 좌석 타일 위젯
-        ├── select_seat.dart # 역 선택 텍스트 위젯
+        ├── select_text.dart # 역 선택 텍스트 위젯
         └── submit_button.dart # 제출 버튼 위젯
 ```
 
