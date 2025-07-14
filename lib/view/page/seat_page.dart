@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:trainy_app/view/page/home_page.dart';
+import 'package:trainy_app/view/page/my_page.dart';
 import 'package:trainy_app/view/widget/seat_tile.dart';
 import 'package:trainy_app/view/widget/submit_button.dart';
 
@@ -40,8 +41,12 @@ class _SeatPageState extends State<SeatPage> {
       showCupertinoDialog(
         barrierDismissible: true,
         context: context,
-        builder: (context) =>
-            SubmitAlert(selectedNum: selectedNum, selectedLabel: selectedLabel),
+        builder: (context) => SubmitAlert(
+          startStation: widget.startStation,
+          endStation: widget.endStation,
+          selectedNum: selectedNum,
+          selectedLabel: selectedLabel,
+        ),
       );
       return;
     } else {
@@ -161,10 +166,13 @@ class _SeatPageState extends State<SeatPage> {
 class SubmitAlert extends StatelessWidget {
   const SubmitAlert({
     super.key,
+    required this.startStation,
+    required this.endStation,
     required this.selectedNum,
     required this.selectedLabel,
   });
-
+  final String startStation;
+  final String endStation;
   final int? selectedNum;
   final String? selectedLabel;
 
@@ -196,7 +204,13 @@ class SubmitAlert extends StatelessWidget {
           onPressed: () {
             Navigator.pushAndRemoveUntil(
               context,
-              MaterialPageRoute(builder: (context) => HomePage()),
+              MaterialPageRoute(
+                builder: (context) => MyPage(
+                  startStation: startStation,
+                  endStation: endStation,
+                  sheat: '$selectedNum-$selectedLabel',
+                ),
+              ),
               (route) => false,
             );
           },

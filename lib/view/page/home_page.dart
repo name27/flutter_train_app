@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:trainy_app/util/station.dart';
 import 'package:trainy_app/view/page/seat_page.dart';
 import 'package:trainy_app/view/page/station_list_page.dart';
+import 'package:trainy_app/view/widget/select_seat.dart';
 import 'package:trainy_app/view/widget/submit_button.dart';
 
 class HomePage extends StatefulWidget {
@@ -110,45 +111,6 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class SelectText extends StatelessWidget {
-  const SelectText({
-    super.key,
-    required this.text,
-    this.onTap,
-    this.resultText,
-  });
-  final String text;
-  final String? resultText;
-  final Function()? onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            text,
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.grey,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          Text(
-            resultText ?? '선택',
-            style: TextStyle(
-              fontSize: 40,
-              color: Theme.of(context).textTheme.bodyLarge?.color,
-            ),
-          ),
-        ],
       ),
     );
   }
