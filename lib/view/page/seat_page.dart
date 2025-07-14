@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:trainy_app/view/page/home_page.dart';
 import 'package:trainy_app/view/page/my_page.dart';
 import 'package:trainy_app/view/widget/seat_tile.dart';
 import 'package:trainy_app/view/widget/submit_button.dart';
