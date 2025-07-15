@@ -79,19 +79,35 @@ class _SeatPageState extends State<SeatPage> {
       body: Center(
         child: Column(
           children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                SelectedStation(stationName: widget.startStation),
-                Icon(
-                  Icons.arrow_circle_right_outlined,
-                  size: 30,
-                  color: Theme.of(context).textTheme.bodyLarge?.color,
+            SizedBox(
+              width: double.infinity,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Center(
+                        child: SelectedStation(
+                          stationName: widget.startStation,
+                        ),
+                      ),
+                    ),
+                    Icon(
+                      Icons.arrow_circle_right_outlined,
+                      size: 30,
+                      color: Theme.of(context).textTheme.bodyLarge?.color,
+                    ),
+                    Expanded(
+                      child: Center(
+                        child: SelectedStation(stationName: widget.endStation),
+                      ),
+                    ),
+                  ],
                 ),
-                SelectedStation(stationName: widget.endStation),
-              ],
+              ),
             ),
+            SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
