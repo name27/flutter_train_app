@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:trainy_app/view/page/my_page.dart';
-import 'package:trainy_app/view/widget/seat_tile.dart';
+import 'package:trainy_app/view/page/seat/widget/label_text_tile.dart';
+import 'package:trainy_app/view/page/seat/widget/seat_text.dart';
+import 'package:trainy_app/view/page/seat/widget/selected_station.dart';
+import 'package:trainy_app/view/page/seat/widget/submit_alert.dart';
+import 'package:trainy_app/view/page/seat/widget/seat_tile.dart';
 import 'package:trainy_app/view/widget/submit_button.dart';
 
 class SeatPage extends StatefulWidget {
@@ -174,133 +178,6 @@ class _SeatPageState extends State<SeatPage> {
             ],
           ),
       ],
-    );
-  }
-}
-
-class SubmitAlert extends StatelessWidget {
-  const SubmitAlert({
-    super.key,
-    required this.startStation,
-    required this.endStation,
-    required this.selectedNum,
-    required this.selectedLabel,
-  });
-  final String startStation;
-  final String endStation;
-  final int? selectedNum;
-  final String? selectedLabel;
-
-  @override
-  Widget build(BuildContext context) {
-    return CupertinoAlertDialog(
-      title: Text(
-        '예약 하시겠습니까?',
-        style: TextStyle(
-          color: CupertinoTheme.of(context).textTheme.textStyle.color,
-        ),
-      ),
-      content: Text(
-        '좌석: $selectedNum-$selectedLabel',
-        style: TextStyle(
-          color: CupertinoTheme.of(context).textTheme.textStyle.color,
-        ),
-      ),
-      actions: [
-        CupertinoDialogAction(
-          isDestructiveAction: true,
-          child: Text('취소'),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        CupertinoDialogAction(
-          child: Text('확인'),
-          onPressed: () {
-            Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(
-                builder: (context) => MyPage(
-                  startStation: startStation,
-                  endStation: endStation,
-                  sheat: '$selectedNum-$selectedLabel',
-                ),
-              ),
-              (route) => false,
-            );
-          },
-        ),
-      ],
-    );
-  }
-}
-
-class LabelTextTile extends StatelessWidget {
-  const LabelTextTile({super.key, this.text});
-  final String? text;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: 50,
-      height: 50,
-      child: text != null
-          ? Center(
-              child: Text(
-                text!,
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).textTheme.bodyLarge?.color,
-                ),
-              ),
-            )
-          : null,
-    );
-  }
-}
-
-class SeatText extends StatelessWidget {
-  const SeatText({super.key, required this.isSelected});
-
-  final bool isSelected;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          width: 24,
-          height: 24,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            color: isSelected ? Colors.purple : Colors.grey[300],
-          ),
-        ),
-        SizedBox(width: 4),
-        Text(
-          isSelected ? "선택됨" : "선택안됨",
-          style: TextStyle(color: Theme.of(context).textTheme.bodyLarge?.color),
-        ),
-      ],
-    );
-  }
-}
-
-class SelectedStation extends StatelessWidget {
-  const SelectedStation({super.key, required this.stationName});
-  final String stationName;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      stationName,
-      style: TextStyle(
-        fontSize: 30,
-        fontWeight: FontWeight.bold,
-        color: Colors.purple,
-      ),
     );
   }
 }

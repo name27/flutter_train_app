@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trainy_app/util/station.dart';
-import 'package:trainy_app/view/page/seat_page.dart';
+import 'package:trainy_app/view/page/seat/seat_page.dart';
 import 'package:trainy_app/view/page/station_list_page.dart';
 import 'package:trainy_app/view/widget/select_text.dart';
 import 'package:trainy_app/view/widget/submit_button.dart';
