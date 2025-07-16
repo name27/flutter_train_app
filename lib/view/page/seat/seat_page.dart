@@ -139,7 +139,6 @@ class _SeatPageState extends State<SeatPage> {
                       seatTileList('C'),
                       SizedBox(width: 4),
                       seatTileList('D'),
-                      SizedBox(width: 4),
                     ],
                   ),
                 ],
