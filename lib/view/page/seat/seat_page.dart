@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:trainy_app/view/page/my_page.dart';
 import 'package:trainy_app/view/page/seat/widget/label_text_tile.dart';
 import 'package:trainy_app/view/page/seat/widget/seat_text.dart';
 import 'package:trainy_app/view/page/seat/widget/selected_station.dart';
